@@ -1,8 +1,8 @@
 <?php
 namespace SR\ShippingMethod\Model\Carrier;
 
+use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Rate\Result;
-
 /**
  * shipping model
  */
@@ -51,12 +51,12 @@ class Method extends \Magento\Shipping\Model\Carrier\AbstractCarrier implements
     }
 
     /**
-     * @param \Magento\Framework\Object $request
+     * @param RateRequest $request
      * @return Result|bool
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)
      */
-    public function collectRates(\Magento\Framework\Object $request)
+    public function collectRates(RateRequest $request)
     {
         if (!$this->getConfigFlag('active')) {
             return false;
